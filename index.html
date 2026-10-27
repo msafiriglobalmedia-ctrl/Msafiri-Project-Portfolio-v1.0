@@ -17,6 +17,152 @@
 </head>
 
 <body>
+ <!-- =========================================
+     MSAFIRI GROUP OF COMPANIES SPLASH SCREEN
+========================================= -->
+<div
+  id="brand-splash"
+  class="brand-splash is-hidden"
+  role="dialog"
+  aria-label="Welcome to Msafiri Group of Companies"
+  aria-modal="true"
+>
+  <div class="splash-grid" aria-hidden="true"></div>
+  <div class="splash-glow splash-glow-one"></div>
+  <div class="splash-glow splash-glow-two"></div>
+
+  <div class="splash-content">
+
+    <!-- Animated globe and airplane logo -->
+    <div class="splash-logo-wrap">
+      <svg
+        class="splash-logo"
+        viewBox="0 0 240 220"
+        role="img"
+        aria-label="Golden globe and airplane"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="goldGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff0a3"/>
+            <stop offset="32%" stop-color="#ffd45d"/>
+            <stop offset="70%" stop-color="#c98b18"/>
+            <stop offset="100%" stop-color="#fff0a3"/>
+          </linearGradient>
+
+          <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Globe -->
+        <circle
+          cx="108" cy="118" r="72"
+          fill="none"
+          stroke="url(#goldGradient)"
+          stroke-width="3"
+        />
+
+        <!-- Longitude and latitude lines -->
+        <ellipse
+          cx="108" cy="118" rx="34" ry="72"
+          fill="none"
+          stroke="#dba93d"
+          stroke-opacity=".65"
+          stroke-width="1.5"
+        />
+
+        <ellipse
+          cx="108" cy="118" rx="72" ry="27"
+          fill="none"
+          stroke="#dba93d"
+          stroke-opacity=".65"
+          stroke-width="1.5"
+        />
+
+        <ellipse
+          cx="108" cy="118" rx="72" ry="49"
+          fill="none"
+          stroke="#dba93d"
+          stroke-opacity=".38"
+          stroke-width="1"
+        />
+
+        <path
+          d="M36 118 H180 M108 46 V190"
+          fill="none"
+          stroke="#dba93d"
+          stroke-opacity=".45"
+          stroke-width="1"
+        />
+
+        <!-- Simplified continent shapes -->
+        <g fill="url(#goldGradient)" filter="url(#goldGlow)">
+          <path d="M66 72 L82 62 L96 69 L92 82 L78 88 L73 102 L60 98 L56 83 Z"/>
+          <path d="M92 119 L111 121 L124 135 L119 153 L109 171 L99 159 L96 144 L85 134 Z"/>
+          <path d="M119 78 L135 69 L151 78 L157 91 L146 100 L134 95 L124 103 L115 92 Z"/>
+          <path d="M137 116 L154 111 L168 122 L164 143 L151 159 L143 146 L133 132 Z"/>
+        </g>
+
+        <!-- Globe orbit -->
+        <path
+          class="splash-orbit"
+          d="M34 145 C15 95 54 36 115 35 C145 34 163 44 181 57"
+          fill="none"
+          stroke="url(#goldGradient)"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+
+        <path
+          class="splash-orbit"
+          d="M37 148 C71 194 141 190 183 121"
+          fill="none"
+          stroke="url(#goldGradient)"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+
+        <!-- Airplane -->
+        <g
+          class="splash-plane"
+          transform="translate(171 27) rotate(25)"
+          fill="url(#goldGradient)"
+        >
+          <path d="M0 15 L48 0 L38 15 L51 32 L44 36 L27 23 L13 43 L8 41 L14 18 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <p class="splash-overline">VISION · INNOVATION · EXCELLENCE</p>
+
+    <h1 class="splash-name">MSAFIRI</h1>
+
+    <div class="splash-brand-line">
+      <span></span>
+      <h2>GROUP OF COMPANIES</h2>
+      <span></span>
+    </div>
+
+    <p class="splash-tagline">
+      DREAM BIG <i>•</i> TRAVEL FAR <i>•</i> INSPIRE MORE
+    </p>
+
+    <div class="splash-progress" aria-hidden="true">
+      <span></span>
+    </div>
+
+    <p class="splash-welcome">BUILDING A VISION FOR THE FUTURE</p>
+  </div>
+
+  <button id="splash-skip" class="splash-skip" type="button">
+    Skip intro <span aria-hidden="true">→</span>
+  </button>
+</div> 
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- NAVIGATION -->
