@@ -197,3 +197,86 @@ document.querySelectorAll(".whatsapp-link").forEach((link) => {
 console.log(
   "Msafiri Project Portfolio v1.0 initialized successfully."
 );
+/* ==============================================
+   MSAFIRI GROUP OF COMPANIES — SPLASH CONTROLLER
+================================================ */
+
+(() => {
+  "use strict";
+
+  function initializeMsafiriSplash() {
+    const splash = document.getElementById("brand-splash");
+    const skipButton = document.getElementById("splash-skip");
+
+    // Continue normally if the splash HTML is missing.
+    if (!splash) return;
+
+    const STORAGE_KEY = "msafiriGroupSplashV3";
+    const forceIntro =
+      new URLSearchParams(window.location.search).get("intro") === "1";
+
+    let alreadySeen = false;
+    let finished = false;
+    let hideTimer = null;
+
+    try {
+      alreadySeen = sessionStorage.getItem(STORAGE_KEY) === "yes";
+    } catch (error) {
+      // Storage may be unavailable; the website must still work.
+    }
+
+    // Show the intro once per tab session.
+    if (alreadySeen && !forceIntro) {
+      splash.classList.add("is-hidden");
+      return;
+    }
+
+    splash.classList.remove("is-hidden");
+    splash.classList.remove("is-leaving");
+
+    function finishIntro() {
+      if (finished) return;
+      finished = true;
+
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+      }
+
+      splash.classList.add("is-leaving");
+
+      try {
+        sessionStorage.setItem(STORAGE_KEY, "yes");
+      } catch (error) {
+        // Intro can finish even without browser storage.
+      }
+
+      window.setTimeout(() => {
+        splash.classList.add("is-hidden");
+      }, 700);
+    }
+
+    if (skipButton) {
+      skipButton.addEventListener("click", finishIntro);
+    }
+
+    // Allow the user to skip using the Escape key.
+    document.addEventListener("keydown", function handleEscape(event) {
+      if (event.key === "Escape" && !finished) {
+        finishIntro();
+      }
+    });
+
+    // Automatically close the splash after about 4.3 seconds.
+    hideTimer = window.setTimeout(finishIntro, 4300);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeMsafiriSplash,
+      { once: true }
+    );
+  } else {
+    initializeMsafiriSplash();
+  }
+})();
